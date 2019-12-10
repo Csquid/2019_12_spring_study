@@ -37,4 +37,11 @@ public class HomeController {
 
         return "index";
     }
+    @RequestMapping(value="/member/register", method = RequestMethod.GET)
+    public String register(Model model) {
+        logger.info("Welcome Register!");
+        model.addAttribute("page", "register");
+
+        return "floatSection/member/register";
+    }
 }

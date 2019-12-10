@@ -16,7 +16,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping(value="/user/**")
+@RequestMapping(value="/member/**")
 public class MemberController {
     private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
@@ -28,6 +28,14 @@ public class MemberController {
         logger.info(udo.toString());
 
         return "index";
+    }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String login(Model model, @RequestBody MemberVO vo, HttpServletRequest request) {
+        logger.info("Member Controller");
+        logger.info("Vo Data: " + vo.toString());
+
+        return null;
     }
 
     @RequestMapping(value="/getUserInfo", method = RequestMethod.GET)

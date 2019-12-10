@@ -17,7 +17,12 @@
     <title>Title</title>
 </head>
 <body>
+<div class="header">
     <%@include file="../../fixSection/header.jsp" %>
+</div>
+<div class="main">
+    <%@include file="./register_component.jsp"%>
+</div>
 
 </body>
 </html>

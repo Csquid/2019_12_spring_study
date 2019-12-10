@@ -19,9 +19,9 @@
   <title>Document</title>
 </head>
 <body>
-<header>
+<div class="header">
   <%@include file="fixSection/header.jsp" %>
-</header>
+</div>
 <div class="main">
   <c:choose>
     <c:when test="${page == 'home'}">
