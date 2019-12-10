@@ -1,0 +1,44 @@
+.main {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1400px;
+    overflow: hidden;
+    height: calc(100% - 180px);
+    border: 1px solid greenyellow;
+}
+.footer {
+    height: 10px
+}
+.content {
+    display: inline-block;
+    width: 80%;
+    border: 1px solid red;
+    height: 100%;
+    background-color: white;
+}
+.sidebar {
+    display: inline-block;
+    float: right;
+    width: 19.5%;
+    height: 100%;
+    border: 1px blueviolet solid;
+    background-color: green;
+}
+.register-content {
+    padding: 20px;
+    width: 100%;
+    border: 1px solid red;
+    height: 100%;
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.login-area {
+    width: 100%;
+    border: 1px black solid;
+    padding: 20px;
+}
+.todo-day {
+    padding: 10px;
+}
