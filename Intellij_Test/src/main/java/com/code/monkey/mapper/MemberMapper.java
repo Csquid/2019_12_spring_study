@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface MemberMapper {
-    List<MemberVO> selectMembers();
-    MemberVO selectMember(String id);
+    List<MemberVO> searchMembers();
+    MemberVO searchMemberID(MemberVO vo);
 }

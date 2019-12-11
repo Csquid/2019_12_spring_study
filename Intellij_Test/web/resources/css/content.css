@@ -6,9 +6,6 @@
     height: calc(100% - 180px);
     border: 1px solid greenyellow;
 }
-.footer {
-    height: 10px
-}
 .content {
     display: inline-block;
     width: 80%;

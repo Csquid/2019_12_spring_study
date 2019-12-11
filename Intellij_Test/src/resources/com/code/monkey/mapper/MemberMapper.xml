@@ -5,8 +5,8 @@
     <select id="selectMembers" resultType="MemberVO">
         SELECT * FROM member
     </select>
-    <select id="selectMember" resultType="MemberVO">
+    <select id="searchMemberID" resultType="MemberVO">
         SELECT * FROM member
-        WHERE member_id = #{id}
+        WHERE id = #{id}
     </select>
 </mapper>

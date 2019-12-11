@@ -41,6 +41,7 @@
         pw : l_pw
     };
 
+    <!-- 로그인 처리 부분 -->
     $(function () {
         $("#login-submit").click(function () {
 
@@ -61,8 +62,8 @@
             */
 
             const loginFormData = JSON.stringify({
-                id: $('#monkey-login-id').val(),
-                pw: $('#monkey-login-pw').val()
+                id: $('#login-id').val(),
+                pw: $('#login-pw').val()
             });
 
             $.ajax({

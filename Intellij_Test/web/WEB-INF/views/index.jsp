@@ -33,7 +33,7 @@
   </c:choose>
 </div>
 <div class="footer">
-
+    <%@include file="fixSection/footer.jsp"%>
 </div>
 </body>
 </html>

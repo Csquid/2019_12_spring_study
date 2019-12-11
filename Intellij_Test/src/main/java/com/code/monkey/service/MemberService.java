@@ -13,16 +13,17 @@ public class MemberService {
     //private MemberDAO memberDao;
     private MemberMapper memberMapper;
 
-    public MemberVO selectMember(String id) {
-        MemberVO memberVO = memberMapper.selectMember(id);
-
-        System.out.println("MemberDTO:" + memberVO.toString());
-        return memberVO;
-    }
-
     public List<MemberVO> selectMembers() {
-        List<MemberVO> memberVOs = memberMapper.selectMembers();
+        List<MemberVO> memberVOs = memberMapper.searchMembers();
 
         return memberVOs;
     }
+
+    public MemberVO searchMemberID(MemberVO vo) {
+        MemberVO memberVO = memberMapper.searchMemberID(vo);
+
+        //System.out.println("MemberDTO:" + memberVO.toString());
+        return memberVO;
+    }
+
 }
