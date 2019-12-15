@@ -9,4 +9,19 @@
         SELECT * FROM member
         WHERE id = #{id}
     </select>
+    <select id="searchMemberAlias" resultType="MemberVO">
+        SELECT * FROM member
+        WHERE alias = #{alias}
+    </select>
+    <insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO MEMBER(id, pw, name, alias,  gender, address)
+		VALUES(
+		#{id},
+		#{pw},
+		#{name},
+		#{alias},
+		#{gender},
+		#{address}
+		)
+	</insert>
 </mapper>

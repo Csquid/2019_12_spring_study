@@ -9,4 +9,6 @@ import java.util.List;
 public interface MemberMapper {
     List<MemberVO> searchMembers();
     MemberVO searchMemberID(MemberVO vo);
+    MemberVO searchMemberAlias(MemberVO vo);
+    int insertMember(MemberVO vo);
 }

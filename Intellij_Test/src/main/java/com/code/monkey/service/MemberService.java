@@ -14,16 +14,19 @@ public class MemberService {
     private MemberMapper memberMapper;
 
     public List<MemberVO> selectMembers() {
-        List<MemberVO> memberVOs = memberMapper.searchMembers();
-
-        return memberVOs;
+        return memberMapper.searchMembers();
     }
 
     public MemberVO searchMemberID(MemberVO vo) {
-        MemberVO memberVO = memberMapper.searchMemberID(vo);
+        return memberMapper.searchMemberID(vo);
+    }
 
-        //System.out.println("MemberDTO:" + memberVO.toString());
-        return memberVO;
+    public MemberVO searchMemberAlias(MemberVO vo) {
+        return memberMapper.searchMemberAlias(vo);
+    }
+
+    public int insertMember(MemberVO vo) {
+        return memberMapper.insertMember(vo);
     }
 
 }

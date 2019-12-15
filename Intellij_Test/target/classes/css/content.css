@@ -1,7 +1,5 @@
 .main {
-    margin: 0 auto;
     padding: 20px;
-    max-width: 1400px;
     overflow: hidden;
     height: calc(100% - 180px);
     border: 1px solid greenyellow;
@@ -27,9 +25,6 @@
     border: 1px solid red;
     height: 100%;
     background-color: white;
-    max-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
 }
 .login-area {
     width: 100%;
@@ -38,4 +33,18 @@
 }
 .todo-day {
     padding: 10px;
+}
+.monkey-max-width {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.register-max-width {
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 700px;
+}
+.alert {
+    display: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

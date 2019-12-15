@@ -42,6 +42,6 @@ public class HomeController {
         logger.info("Welcome Register!");
         model.addAttribute("page", "register");
 
-        return "floatSection/member/register";
+        return "index";
     }
 }
