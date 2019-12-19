@@ -10,7 +10,7 @@ register - {id, pw, name != null}
 
 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="register-content register-max-width" style="padding-top: 11%;">
+<div class="main-content register-content register-max-width" style="padding-top: 11%;">
   <div class="alerts">
     <div id="register-alert-overlap-id" class="alert alert-danger register-max-width" role="alert">
       <strong>아이디가 중복됩니다.</strong>
@@ -37,7 +37,7 @@ register - {id, pw, name != null}
   <!-- Input_ID -->
   <div class="input-group mb-3">
     <div class="input-group-prepend" style="width: 130px;">
-      <span class="input-group-text" style="width: 100%;">❗&nbsp;ID</span>
+      <span class="input-group-text" style="width: 100%;">ID</span>
     </div>
     <input type="text" class="form-control" placeholder="ID" id="register-id"
            aria-label="Example text with button addon"
@@ -49,7 +49,7 @@ register - {id, pw, name != null}
   <!-- Input_Name -->
   <div class="input-group mb-3">
     <div class="input-group-prepend" style="width: 130px;">
-      <span class="input-group-text" style="width: 100%;">❗&nbsp;Name</span>
+      <span class="input-group-text" style="width: 100%;">Name</span>
     </div>
     <input type="text" class="form-control" id="register-name" placeholder="Name" aria-describedby="button-addon1">
   </div>
@@ -68,7 +68,7 @@ register - {id, pw, name != null}
   <!-- Input Password -->
   <div class="input-group mb-3">
     <div class="input-group-prepend" style="width: 130px;">
-      <span class="input-group-text" style="width: 100%;">❗&nbsp;Password</span>
+      <span class="input-group-text" style="width: 100%;">Password</span>
     </div>
     <input type="password" class="form-control" id="password-first" placeholder=""
            aria-label="Example text with button addon"
@@ -77,7 +77,7 @@ register - {id, pw, name != null}
   <!-- Input Confirm Password -->
   <div class="input-group mb-3">
     <div class="input-group-prepend" style="width: 130px;">
-      <span class="input-group-text" style="width: 100%;">❗&nbsp;Password</span>
+      <span class="input-group-text" style="width: 100%;">Password</span>
     </div>
     <input type="password" class="form-control" id="password-second" placeholder=""
            aria-label="Example text with button addon"

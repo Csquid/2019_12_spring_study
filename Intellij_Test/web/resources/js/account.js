@@ -267,7 +267,11 @@ $('#logout').click(function () {
   window.location.href = "/member/logout";
 });
 
+$('#move-MyProfile').click(function () {
+  window.location.href = "/move/member/profile";
+});
+
 $('#move-register').click(function () {
-  window.location.href = "/member/register";
+  window.location.href = "/move/member/register";
 });
 

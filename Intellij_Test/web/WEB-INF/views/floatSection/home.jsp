@@ -6,4 +6,4 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<h3>This is Home</h3>
+<img src="/resources/images/banner_2.png" width="100%" height="100%">

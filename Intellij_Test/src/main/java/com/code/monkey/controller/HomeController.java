@@ -37,10 +37,9 @@ public class HomeController {
 
         return "index";
     }
-    @RequestMapping(value="/member/register", method = RequestMethod.GET)
-    public String register(Model model) {
-        logger.info("Welcome Register!");
-        model.addAttribute("page", "register");
+    @RequestMapping(value="/upload", method = RequestMethod.GET)
+    public String upload(Model model) {
+        model.addAttribute("page", "imgUpload");
 
         return "index";
     }

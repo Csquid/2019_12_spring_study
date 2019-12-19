@@ -113,6 +113,7 @@ public class MemberController {
 
     return jsonObject.toString();
   }
+
   @ResponseBody
   @RequestMapping(value = "/register/overlap/alias", method = RequestMethod.POST)
   public String overlapCheckAlias(@RequestBody MemberVO vo) {
@@ -127,6 +128,7 @@ public class MemberController {
 
     return jsonObject.toString();
   }
+
   @GetMapping(value = "/logout")
   public String logoutUser(Model model, HttpServletRequest request) {
     HttpSession session = request.getSession();

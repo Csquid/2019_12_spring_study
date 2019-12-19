@@ -14,7 +14,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Document</title>
+  <title>Planner Community</title>
 </head>
 <body>
 <div class="header">
@@ -32,42 +32,20 @@
       <c:when test="${page == 'register'}">
         <%@include file='floatSection/member/register_component.jsp' %>
       </c:when>
+      <c:when test="${page == 'imgUpload'}">
+        <%@include file="floatSection/file/upload.jsp"%>
+      </c:when>
+      <c:when test="${page == 'result'}">
+        <%@include file="floatSection/file/result.jsp"%>
+      </c:when>
+      <c:when test="${page == 'myProfile'}">
+        <%@include file="floatSection/member/member_detail.jsp"%>
+      </c:when>
     </c:choose>
   </div>
   <div class="sidebar">
-    <div class="login-area">
-      <!-- is-valid -->
-      <!-- is-invalid -->
-      <!-- 만약 세션에 유저 정보가 empty 즉 null 이라면 로그인을 할수있는 창을 띄우며 그것이 아니면 유저의 정보를 띄운다. -->
-      <c:choose>
-        <c:when test="${empty sessionScope.userInfo}">
-          <div class="login-before" style="display: inline">
-            <input type="text" id="login-id" class="form-control"
-                   style="margin-bottom: 5px; width: 100%;" placeholder="input your id">
-            <input type="password" id="login-pw" class="form-control"
-                   style="margin-bottom: 10px; width: 100%;" placeholder="input your password">
-
-            <button class="btn btn-primary btn-block" id="submit-login">Sign in</button>
-            <button class="btn btn-primary btn-block" id="move-register" type="submit">Sign up</button>
-          </div>
-        </c:when>
-        <c:otherwise>
-          <div class="login-after" style="display: inline">
-            <div class="user-avatar" style="text-align: center;">
-              <img src="/resources/images/programmer-icon.jpg" width="50%" style="background-color: white">
-            </div>
-            <div class="user-information">
-              <h5 style="text-align: center; margin-top: .5rem; margin-bottom: 0;">${sessionScope.userInfo.id}</h5>
-              <h5 style="text-align: center;">Lv. 1</h5>
-            </div>
-            <button id="logout" class="btn btn-primary btn-block" type="button">Logout</button>
-          </div>
-        </c:otherwise>
-      </c:choose>
-
-    </div>
+    <%@include file="fixSection/sidebar.jsp"%>
   </div>
-
 </div>
 <div class="footer">
   <%@include file="fixSection/footer.jsp" %>

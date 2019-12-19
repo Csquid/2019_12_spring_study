@@ -156,9 +156,7 @@ $(function () {
       r_alert_object.null.css("display", "block");
 
       return;
-    }
-
-    if (r_pw_first.val() !== r_pw_second.val()) {   //패스워드 첫번째와 두번재가 서로 다른경우
+    } else if (r_pw_first.val() !== r_pw_second.val()) {   //패스워드 첫번째와 두번재가 서로 다른경우
       $.each({r_pw_first, r_pw_second}, function (index, item) {
         item.addClass('is-invalid');
       });
@@ -167,28 +165,6 @@ $(function () {
       return;
     }
 
-    /*
-    if (r_object.id.val() === '' || r_object.pw.val() === '' || r_object.name.val() === '') {
-      $.each({r_id, r_pw_first, r_pw_second, r_name}, function (index, item) {
-        if (item.val() === '') {
-          item.addClass('is-invalid');
-        } else {
-          item.addClass('is-valid')
-        }
-      });
-
-      r_alert_object.null.css("display", "block");
-
-      return;
-    } else if(r_pw_first.val() !== r_pw_second.val()) {   //패스워드 첫번째와 두번재가 서로 다른경우
-      $.each({r_pw_first, r_pw_second}, function (index, item) {
-        item.addClass('is-invalid');
-      });
-
-      r_alert_object.pw.css("display", "block");
-      return;
-    }
-     */
     const registerFormData = JSON.stringify({
       id: r_object.id.val(),
       pw: r_object.pw.val(),
@@ -213,16 +189,16 @@ $(function () {
           if (data.overlap) {
             if (data.overlap_id) {
               r_object.id.addClass("is-invalid");
-              r_alert_object.overlap_id.css("display", "block");
+              r_alert_object.overlap.id.css("display", "block");
             }
             if (data.overlap_alias) {
               r_object.alias.addClass("is-invalid");
-              r_alert_object.overlap_alias.css("display", "block");
+              r_alert_object.overlap.alias.css("display", "block");
             }
           }
         }
       }
-    })
+    });
   });
 
   $("#submit-overlap-check-id").click(function () {
@@ -291,7 +267,11 @@ $('#logout').click(function () {
   window.location.href = "/member/logout";
 });
 
+$('#move-MyProfile').click(function () {
+  window.location.href = "/move/member/profile";
+});
+
 $('#move-register').click(function () {
-  window.location.href = "/member/register";
+  window.location.href = "/move/member/register";
 });
 
