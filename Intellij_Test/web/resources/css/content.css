@@ -4,11 +4,13 @@
     /*height: calc(100% - 180px);*/
     border: 1px solid greenyellow;
 }
+
 hr {
     height: 1.3px;
     background: #bbb;
     background-image: -webkit-linear-gradient(left, #777, #eee, #eee);
 }
+
 .content {
     display: inline-block;
     width: 80%;
@@ -17,6 +19,7 @@ hr {
     background-color: white;
     padding: 30px;
 }
+
 .sidebar {
     display: inline-block;
     float: right;
@@ -25,6 +28,7 @@ hr {
     border: 1px blueviolet solid;
     background-color: green;
 }
+
 .main-content {
     padding: 20px;
     width: 100%;
@@ -35,31 +39,38 @@ hr {
     margin: 0 auto;
     overflow: hidden;
 }
+
 .register-content {
     border: 2px solid red;
     background-color: white;
 }
+
 .member-content {
     border: 2px solid black;
     background-color: white;
 }
+
 .login-area {
     width: 100%;
     border: 1px black solid;
     padding: 20px;
 }
+
 .todo-day {
     padding: 10px;
 }
+
 .monkey-max-width {
     max-width: 1400px;
     margin: 0 auto;
 }
+
 .register-max-width {
     margin: 0 auto;
     overflow: hidden;
     max-width: 700px;
 }
+
 .alert {
     display: none;
     margin-top: 5px;
@@ -70,14 +81,39 @@ hr {
     margin-top: 10px;
     width: 100%;
 }
-#member-icon-round {
+#change-default-image-icon {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.member-icon-round {
     vertical-align: bottom;
     background: white;
     border-radius: 50%;
     border: 2px black solid;
-    width: 80px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
 }
-#member-icon-square {
-    vertical-align: bottom; background: white; border: 2px black solid; margin-left: 10px;
+
+.member-icon-round.profile {
+    width: 80px;
+    height: 80px;
+}
+.member-icon-square {
+    vertical-align: bottom;
+    background: white;
+    border: 2px black solid;
     width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.input-group-prepend {
+    width: 130px;
+}
+.input-group-text {
+    width: 100%;
+}
+.form-control.white {
+    background: white;
 }

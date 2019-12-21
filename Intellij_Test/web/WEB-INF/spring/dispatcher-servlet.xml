@@ -26,6 +26,7 @@
         <beans:property name="defaultEncoding" value="utf-8" />
         <!--10485760: 약 10MB -->
     </beans:bean>
+
     <!-- resource mapping -->
     <!-- location : 물리적 주소 / mapping : 가상 주소 -->
     <mvc:resources location="file:/upload/" mapping="/upload/**"/>

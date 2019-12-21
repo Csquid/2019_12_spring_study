@@ -41,6 +41,9 @@
       <c:when test="${page == 'myProfile'}">
         <%@include file="floatSection/member/member_detail.jsp"%>
       </c:when>
+      <c:when test="${page == 'modify myProfile'}">
+        <%@include file="floatSection/member/member_modify.jsp"%>
+      </c:when>
     </c:choose>
   </div>
   <div class="sidebar">

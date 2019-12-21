@@ -36,7 +36,7 @@ register - {id, pw, name != null}
   <h1 style="text-align: center;">Register</h1> <br/>
   <!-- Input_ID -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <span class="input-group-text" style="width: 100%;">ID</span>
     </div>
     <input type="text" class="form-control" placeholder="ID" id="register-id"
@@ -48,14 +48,14 @@ register - {id, pw, name != null}
   </div>
   <!-- Input_Name -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <span class="input-group-text" style="width: 100%;">Name</span>
     </div>
     <input type="text" class="form-control" id="register-name" placeholder="Name" aria-describedby="button-addon1">
   </div>
   <!-- Input_Alias -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <span class="input-group-text" style="width: 100%;">Alias</span>
     </div>
     <input type="text" class="form-control" id="register-alias" placeholder="Alias"
@@ -67,7 +67,7 @@ register - {id, pw, name != null}
   </div>
   <!-- Input Password -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <span class="input-group-text" style="width: 100%;">Password</span>
     </div>
     <input type="password" class="form-control" id="password-first" placeholder=""
@@ -76,7 +76,7 @@ register - {id, pw, name != null}
   </div>
   <!-- Input Confirm Password -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <span class="input-group-text" style="width: 100%;">Password</span>
     </div>
     <input type="password" class="form-control" id="password-second" placeholder=""
@@ -88,7 +88,7 @@ register - {id, pw, name != null}
   </div>
   <!-- Select Gender -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <label class="input-group-text" for="register-gender" style="width: 100%;">Gender</label>
     </div>
     <select class="custom-select" id="register-gender">
@@ -98,7 +98,7 @@ register - {id, pw, name != null}
   </div>
   <!-- Input Address -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" style="width: 130px;">
+    <div class="input-group-prepend" >
       <label class="input-group-text" for="register-address" style="width: 100%;">Address</label>
     </div>
     <input type="text" class="form-control" placeholder="Address" id="register-address"
