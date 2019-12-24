@@ -6,8 +6,9 @@ html, body {
     height: 100%;
 }
 body {
-    background-color: whitesmoke;
+    background-color: forestgreen;
 }
+
 .banner {
     display: table;
     width: 100%;

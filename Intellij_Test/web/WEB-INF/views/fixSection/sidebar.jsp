@@ -27,7 +27,8 @@
         <div class="user-avatar" style="text-align: center;">
           <!-- 이곳에 유저의 아이콘 이미지가 들어가며 만약 없을경우 default 이미지를 박아둔다.  -->
             <%--          <img src="/resources/images/default_user_icon.png" width="50%" style="background-color: white; border-radius: 50%">--%>
-          <img src=${file_path eq null ? "/resources/images/default_user_icon.png" : file_path}
+          <img src=${sessionScope.userInfo.fileImgData eq null ?
+            "/resources/images/default_user_icon.png" : sessionScope.userInfo.fileImgData.file_path}
                        width="50%" style="background-color: white; border-radius: 50%; border: 3px black solid">
         </div>
         <div class="user-information">

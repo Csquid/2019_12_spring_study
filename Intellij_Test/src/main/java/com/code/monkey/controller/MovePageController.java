@@ -32,7 +32,7 @@ public class MovePageController {
   public String MyProfile(Model model, HttpServletRequest request) {
     logger.info("Welcome Profile!");
     model.addAttribute("page", "myProfile");
-
+    model.addAttribute("member_detail", "view");
     HttpSession session = request.getSession();
     //유저의 정보를 들고 가야한다 왜냐면 유저의 상세보기 이기때문에.
     MemberVO vo = (MemberVO) session.getAttribute("userInfo");
@@ -43,7 +43,8 @@ public class MovePageController {
   }
   @RequestMapping(value="/member/profile/modify", method = RequestMethod.GET)
   public String MyProfileModify(Model model, HttpServletRequest request) {
-    model.addAttribute("page", "modify myProfile");
+    model.addAttribute("page", "myProfile");
+    model.addAttribute("member_detail", "modify");
 
     HttpSession session = request.getSession();
     //유저의 정보를 들고 가야한다 왜냐면 유저의 상세보기 이기때문에.

@@ -36,39 +36,35 @@ register - {id, pw, name != null}
   <h1 style="text-align: center;">Register</h1> <br/>
   <!-- Input_ID -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <span class="input-group-text" style="width: 100%;">ID</span>
+    <div class="input-group-prepend">
+      <span class="input-group-text">ID</span>
     </div>
     <input type="text" class="form-control" placeholder="ID" id="register-id"
            aria-label="Example text with button addon"
            aria-describedby="button-addon1">
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button" id="submit-overlap-check-id">중복 체크</button>
-    </div>
+    <button class="btn btn-outline-secondary" type="button" id="submit-overlap-check-id">중복 체크</button>
   </div>
   <!-- Input_Name -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <span class="input-group-text" style="width: 100%;">Name</span>
+    <div class="input-group-prepend">
+      <span class="input-group-text">Name</span>
     </div>
     <input type="text" class="form-control" id="register-name" placeholder="Name" aria-describedby="button-addon1">
   </div>
   <!-- Input_Alias -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <span class="input-group-text" style="width: 100%;">Alias</span>
+    <div class="input-group-prepend">
+      <span class="input-group-text">Alias</span>
     </div>
     <input type="text" class="form-control" id="register-alias" placeholder="Alias"
            aria-label="Example text with button addon"
            aria-describedby="button-addon1">
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button" id="submit-overlap-check-alias">중복 체크</button>
-    </div>
+    <button class="btn btn-outline-secondary" type="button" id="submit-overlap-check-alias">중복 체크</button>
   </div>
   <!-- Input Password -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <span class="input-group-text" style="width: 100%;">Password</span>
+    <div class="input-group-prepend">
+      <span class="input-group-text">Password</span>
     </div>
     <input type="password" class="form-control" id="password-first" placeholder=""
            aria-label="Example text with button addon"
@@ -76,20 +72,18 @@ register - {id, pw, name != null}
   </div>
   <!-- Input Confirm Password -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <span class="input-group-text" style="width: 100%;">Password</span>
+    <div class="input-group-prepend">
+      <span class="input-group-text">Password</span>
     </div>
     <input type="password" class="form-control" id="password-second" placeholder=""
            aria-label="Example text with button addon"
            aria-describedby="button-addon1">
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary" type="button" id="button-password">비밀번호 확인</button>
-    </div>
+    <button class="btn btn-outline-secondary" type="button" id="button-password">비밀번호 확인</button>
   </div>
   <!-- Select Gender -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <label class="input-group-text" for="register-gender" style="width: 100%;">Gender</label>
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="register-gender">Gender</label>
     </div>
     <select class="custom-select" id="register-gender">
       <option value="man">Man</option>
@@ -98,8 +92,8 @@ register - {id, pw, name != null}
   </div>
   <!-- Input Address -->
   <div class="input-group mb-3">
-    <div class="input-group-prepend" >
-      <label class="input-group-text" for="register-address" style="width: 100%;">Address</label>
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="register-address">Address</label>
     </div>
     <input type="text" class="form-control" placeholder="Address" id="register-address"
            aria-label="Example text with button addon" aria-describedby="button-addon1">

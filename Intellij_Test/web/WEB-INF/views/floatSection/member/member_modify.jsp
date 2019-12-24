@@ -14,14 +14,14 @@
   <hr>
   <img src="${pageContext.request.contextPath}/resources/images/default_user_icon.png" alt="member-icon"
        class="member-icon-round profile">
-  <h4 style="display: inline-block;">CodeMonkey</h4>
+  <h4 style="display: inline-block;">${ sessionScope.userInfo.id }</h4>
   <hr>
   <!-- Input_ID -->
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">ID</span>
     </div>
-    <input type="text" class="form-control white" value="${ sessionScope.userInfo.id }">
+    <input type="text" class="form-control white" value="${ sessionScope.userInfo.id }" disabled>
   </div>
   <!-- Input_Name -->
   <div class="input-group mb-3">
@@ -58,24 +58,26 @@
     </div>
     <div style="width: 200px; margin-left: 10px">
       <img src="${pageContext.request.contextPath}/resources/images/default_user_icon.png" alt="member-icon"
-           class="member-icon-square">
-      <button type="button" class="btn btn-outline-dark" style="width: 100%; margin-top: 10px">Replace Image</button>
+           class="member-icon-square" id="mabyeChangeImageTemp">
+      <!-- Button to <Change Member Profile Image> Modal -->
+      <button type="button" id="modal-setting" class="btn btn-outline-dark" data-toggle="modal"
+              data-target="#changeMemberProfileImage">
+        이미지 변경
+      </button>
     </div>
-
+    <select class="custom-select" id="register-gender">
+      <option value="man">Man</option>
+      <option value="woman" selected>WoMan</option>
+    </select>
   </div>
   <button type="button" class="btn btn-outline-dark" id="submit-modify" style="width: 100%;">Apply</button>
-
-  <!-- Button to <Change Member Profile Image> Modal -->
-  <button type="button" id="modal-setting" class="btn btn-secondary" data-toggle="modal"
-          data-target="#changeMemberProfileImage">
-    Change Profile Image
-  </button>
 
   <!-- <Change Member Profile Image> Modal -->
   <div class="modal fade" id="changeMemberProfileImage" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
+
         <!-- Modal Header -->
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Change Profile Image</h5>
@@ -90,19 +92,23 @@
             <img src="${pageContext.request.contextPath}/resources/images/default_user_icon.png" alt="member-icon"
                  class="member-icon-square"
                  id="current-member-icon" style="margin-left: 0;">
-            <input type="file" name="file" id="input-file-image" style="margin-left: 0; margin-top: 10px;">
+            <div class="filebox">
+              <label for="input-file-image" class="btn btn-outline-dark" id="button-profile-label">이미지 변경</label>
+              <input type="file" id="input-file-image" style="display: none;">
+            </div>
             <button type="button" class="btn btn-outline-dark" id="change-default-image-icon">기본 이미지</button>
           </div>
         </div>
         <!-- Modal Footer -->
         <div class="modal-footer" style="justify-content: center;">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: left;">Close</button>
-          <button type="button" class="btn btn-primary" id="profile-image-submit">Save changes</button>
+          <button type="button" class="btn btn-primary" id="profile-image-temp-save">임시 저장</button>
         </div>
 
       </div>
     </div>
   </div>
+
   <script !src="">
     /*
     *
@@ -137,14 +143,15 @@
     *
     */
     const inputDatas = $("input");
+    const defaultImageSrc = "/resources/images/default_user_icon.png";
     let processCheck = null;
-
+    let tempSrc = null;
 
     $("#change-default-image-icon").click(function () {
       //file 영역을 비어준다.
       //fileList 영역은 readOnly 라서 속성 또는 delete 로 삭제가 불가능하다. 그래서 value 값에 "" 을 넣어 초기화를 시켜준다.
       $("#input-file-image")[0].value = "";
-      $("#current-member-icon").attr("src", "/resources/images/default_user_icon.png");
+      $("#current-member-icon").attr("src", defaultImageSrc);
       processCheck = "default";
     });
 
@@ -153,21 +160,42 @@
       $("#input-file-image").on("change", handleImgFile);
     });
 
-    $("#profile-image-submit").click(function () {
+    $("#profile-image-temp-save").click(function () {
+      switch (processCheck) {
+        case null:
+          alert("변경이 없습니다.");
+          break;
+        case "change":
+          //현재 로그인한 유저의 파일이 null 인지 아닌지 체크.
+          //즉 파일이 없기때문에 새로 만들어야함.
+          if (${sessionScope.userInfo.fileImgData eq null}) {
+            $("#mabyeChangeImageTemp").attr("src", tempSrc);
+            $("#changeMemberProfileImage").modal("hide");
+          }
+          break;
+        case "default":
+          $("#mabyeChangeImageTemp").attr("src", defaultImageSrc);
+          $("#changeMemberProfileImage").modal("hide");
+          break;
+      }
+      /*
       if (processCheck === null) {
         alert("변경이 없습니다.");
         return;
       } else if (processCheck === "change") {
         //현재 로그인한 유저의 파일이 null 인지 아닌지 체크.
         //즉 파일이 없기때문에 새로 만들어야함.
-        if (${sessionScope.userInfo.fileImgData eq null}) {
-          alert("true");
+        if (
+      ${sessionScope.userInfo.fileImgData eq null}) {
+          $("#mabyeChangeImageTemp").attr("src", tempSrc);
+          $("#changeMemberProfileImage").modal("hide");
           //TODO: ajax로 통신하여 form 태그 ajax 연동하여 파일 db 연동하여 저장하기.
           //$.ajax()
         } else {
           alert("false");
         }
       }
+      */
     });
 
 
@@ -214,6 +242,7 @@
       reader.onload = function (e) {
         $("#icon-help")[0].innerText = "바뀔 아이콘";
         $("#current-member-icon").attr("src", e.target.result);
+        tempSrc = e.target.result;
         processCheck = "change";
       }
     }

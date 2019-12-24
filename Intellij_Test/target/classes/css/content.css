@@ -3,6 +3,7 @@
     overflow: hidden;
     /*height: calc(100% - 180px);*/
     border: 1px solid greenyellow;
+    background: cyan;
 }
 
 hr {
@@ -116,4 +117,9 @@ hr {
 }
 .form-control.white {
     background: white;
+}
+#button-profile-label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 100%;
 }

@@ -153,7 +153,7 @@ $(function () {
         }
       });
 
-      r_alert_object.null.css("display", "block");
+      r_alert_object.null.all.css("display", "block");
 
       return;
     } else if (r_pw_first.val() !== r_pw_second.val()) {   //패스워드 첫번째와 두번재가 서로 다른경우
@@ -203,6 +203,7 @@ $(function () {
 
   $("#submit-overlap-check-id").click(function () {
     registerInit();
+    r_alert_object.null.id.css("display", "none");
     if (r_object.id.val() === '') {
       r_alert_object.null.id.css("display", "block");
       r_object.id.addClass("is-invalid");
@@ -215,7 +216,7 @@ $(function () {
 
     $.ajax({
       type: "POST",
-      url: "member/register/overlap/id",
+      url: "/member/register/overlap/id",
       data: overlapFormData,
       dataType: "json",
       contentType: "application/json",
@@ -234,6 +235,7 @@ $(function () {
 
   $("#submit-overlap-check-alias").click(function () {
     registerInit();
+    r_alert_object.null.alias.css("display", "none");
     if (r_object.alias.val() === '') {
       r_alert_object.null.alias.css("display", "block");
       r_object.alias.addClass("is-invalid");
@@ -246,7 +248,7 @@ $(function () {
 
     $.ajax({
       type: "POST",
-      url: "member/register/overlap/alias",
+      url: "/member/register/overlap/alias",
       data: overlapFormData,
       dataType: "json",
       contentType: "application/json",
