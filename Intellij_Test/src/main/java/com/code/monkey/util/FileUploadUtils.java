@@ -1,5 +1,6 @@
-package com.code.monkey.service;
+package com.code.monkey.util;
 
+import com.code.monkey.vo.ProfileImageVO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,38 +12,53 @@ import java.util.Calendar;
 import java.util.UUID;
 
 @Service
-public class FileUploadService {
+public class FileUploadUtils {
   // 리눅스 기준으로 파일 경로를 작성 ( 루트 경로인 /으로 시작한다. )
   // 윈도우라면 workspace의 드라이브를 파악하여 JVM이 알아서 처리해준다.
   // 따라서 workspace가 C드라이브에 있다면 C드라이브에 upload 폴더를 생성해 놓아야 한다.
   private static final String SAVE_PATH = "/upload";
   private static final String PREFIX_URL = "/upload/";
+  private String file_path = null;
+  private String originalFileName = null;
+  private String stored_file_name = null;
+  private String extName = null;
+  private ProfileImageVO vo;
+  private int file_size = 0;
 
-  public String restore(MultipartFile multipartFile) {
-    String url = null;
+  public ProfileImageVO setProfileVO(MultipartFile multipartFile) {
 
     try {
       // 파일 정보
+      vo = new ProfileImageVO();
       UUID uuid = UUID.randomUUID();
       String originFilename = multipartFile.getOriginalFilename();
       //확장자 이름을 확인시켜준다.
-      String originalName = originFilename.substring(0, originFilename.lastIndexOf("."));
-      String extName = originFilename.substring(originFilename.lastIndexOf("."), originFilename.length());
-      String savedPath = calcPath();
-      Long size = multipartFile.getSize();
+      this.originalFileName = originFilename.substring(0, originFilename.lastIndexOf("."));
+      this.extName = originFilename.substring(originFilename.lastIndexOf("."), originFilename.length());
+
+      this.file_size = (int) multipartFile.getSize();
 
       // 서버에서 저장 할 파일 이름
-      String saveFileName = uuid + "_" + originalName + "_" + genSaveFileName(extName);
 
-      System.out.println("originFilename : " + originFilename);
-      //extension: 확장자
-      System.out.println("extensionName : " + extName);
-      System.out.println("size : " + size);
-      System.out.println("saveFileName : " + saveFileName);
+      this.stored_file_name = uuid + "_" + this.originalFileName + "_" + genSaveFileName(this.extName);
 
-      writeFile(multipartFile, savedPath, saveFileName);
+      /*
+        System.out.println("originFilename : " + this.originalFileName);
+        //extension: 확장자
+        System.out.println("extensionName : " + this.extName);
+        System.out.println("size : " + this.file_size);
+        System.out.println("saveFileName : " + this.stored_file_name);
+      */
+      String savedPath = calcPath();
+      writeFile(multipartFile, savedPath, this.stored_file_name);
 
-      url = PREFIX_URL + savedPath + File.separator + saveFileName;
+      this.file_path = PREFIX_URL + savedPath + File.separator + this.stored_file_name;
+
+      vo.setOriginal_file_name(this.originalFileName);
+      vo.setStored_file_name(this.stored_file_name);
+      vo.setExtension(this.extName);
+      vo.setFile_path(this.file_path);
+      vo.setFile_size(this.file_size);
     }
     catch (IOException e) {
       // 원래라면 RuntimeException 을 상속받은 예외가 처리되어야 하지만
@@ -50,7 +66,8 @@ public class FileUploadService {
       // throw new FileUploadException();
       throw new RuntimeException(e);
     }
-    return url;
+
+    return vo;
   }
 
 
@@ -81,7 +98,7 @@ public class FileUploadService {
     // 월, ex) \\2017\\03
     String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
     // 디렉토리 생성 메서드 호출
-    makeDir(FileUploadService.SAVE_PATH, ImgUpload, yearPath, monthPath);
+    makeDir(FileUploadUtils.SAVE_PATH, ImgUpload, yearPath, monthPath);
     return monthPath;
   }
 

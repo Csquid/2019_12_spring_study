@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.code.monkey.mapper.MemberMapper">
+    <select id="selectMembers" resultType="MemberVO">
+        SELECT * FROM member
+    </select>
+    <select id="searchMemberID" resultType="MemberVO">
+        SELECT * FROM member
+        WHERE id = #{id}
+    </select>
+    <select id="searchMemberAlias" resultType="MemberVO">
+        SELECT * FROM member
+        WHERE alias = #{alias}
+    </select>
+    <insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO MEMBER(id, pw, name, alias,  gender, address)
+		VALUES(
+		#{id},
+		#{pw},
+		#{name},
+		#{alias},
+		#{gender},
+		#{address}
+		)
+	</insert>
+</mapper>
