@@ -11,7 +11,7 @@
     <properties>
         <org.slf4j-version>1.7.25</org.slf4j-version>
         <org.apache.tiles-version>3.0.5</org.apache.tiles-version>
-        <org.springframework-version>5.2.1.RELEASE</org.springframework-version>
+        <org.springframework-version>5.2.20.RELEASE</org.springframework-version>
         <java-version>11</java-version>
     </properties>
 
